@@ -1,0 +1,225 @@
+body {
+    background-color: bisque;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: 'timeburner';
+    width: auto;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+h1 {
+    position: fixed;
+    padding-bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 200%;
+    font-weight: lighter;
+}
+
+.sidebar {
+    position: static;
+}
+
+#check {
+    display: none;
+}
+
+.menu_button {
+    position: fixed;
+    right: 1%;
+    top: 2%;
+    font-size: 200%;
+    cursor: pointer;
+    z-index: 10000;
+    color: black;
+}
+
+.sidebar_menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 300px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.sidebar_title {
+    position: absolute;
+    margin: 20px;
+    top: 10%;
+    padding-left: 5%;
+}
+
+.sidebar_title a{
+    position: absolute;
+    font-size: 300%;
+    font-family: 'timeburner';
+    top: 30%;
+    text-decoration: none;
+    color: bisque;
+}
+
+#check:checked ~ .sidebar_menu {
+    right: 0;
+    opacity: 1;
+    right: 0;
+    pointer-events: auto;
+}
+
+.menu {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+}
+
+.menu li{
+    margin-top: 10%;
+    padding: 5%; /* mess around w this to maybe stop jiggling on list items, padding must be same here and in hover*/
+    width: 100%;
+    border-left: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+    position: relative; 
+    align-content: center;
+}
+
+.menu a{
+    color: bisque;
+    text-decoration: none;
+    font-family: 'timeburner';
+    font-size: 100%;
+}
+
+.menu li:hover {
+    border-left: solid 1px bisque;
+    border-bottom: solid 1px bisque;
+    box-shadow: 0 0 4% rgba(255, 255, 255, 0.5);
+    padding: 5%;
+    text-shadow: 0 0 1px bisque;
+}
+
+.sidebar_title a:hover {
+    text-shadow: 0 0 2px bisque;
+    text-decoration: 1px underline bisque;
+}
+
+
+.kodak_gold img{
+    width: auto;
+    max-width: 90vw;
+    height: 80vh;
+    position: relative;
+    border: 5px solid transparent;
+    margin: 0 40px;
+    scroll-snap-align: center;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin: 0 40px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.kodak_gold {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 0; /* weird gap befor 201 21 --- edit --- apparantly i had images linked wrong so it was giving a margin to images that dont exist */
+    position: relative;
+    z-index: 1;
+}
+
+.carousel {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 97vh;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-type: x mandatory;
+    /* display: flex; so this is making it centered vertcially on the screen but weird and warped */
+    scroll-behavior: smooth;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    z-index: 1;
+}
+
+.description {
+    position: absolute;
+    top: 88%;
+    left: 15%;
+    opacity: 0;
+    transition: 0.2s ease;
+    z-index: 1;
+}
+
+.disc_pic {
+    position: relative;
+   /* transform: perspective(800px) rotateY(12deg); */
+}
+
+.disc_pic:hover .description {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.2s ease;
+}
+
+.disc_pic:hover img {
+    opacity: 1;
+}
+
+.disc_pic:has(.description:hover) img { /* discpic HAS something called description, so this tells code that the discpic img will do this when the description is being hovered on*/
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) { /* this is for mobile, so if the screen is smaller than 768px, then do this, max-width is the screen size where the change happens */
+    .kodak_gold img{
+        margin-top: 10%;
+    }
+}
+
+
+@font-face {
+    font-family: 'timeburner';
+    src: url(../../fonts/TimeburnerBold-peGR.ttf); /* ../ goes back a folder, so i do it again to make it go back twice*/
+}
+
+/* @keyframes reveal {
+    0% {
+        opacity: 0;
+        transform: translateZ(-1px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(2px);
+    }
+}
+    my attempt at a reveal animation but it DID NOT WORK LOLS */
+
+
+
+/*
+.kodak_gold1 img{
+    position: relative;
+    max-width: 40%;
+    height: auto;
+    margin-left: 0;
+    border: 10px transparent;
+    flex: 0 0 auto; /* dont make images bigger, dont make images smaller, keep original size/dimensions 
+    display: block;
+}
+#scroll_container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100vw;
+    height: 97vh;
+    display: flex; /* flexy flexy so the container knows its allowed to move 
+    flex-direction: row;
+    flex-wrap: nowrap;
+} 
+    i redid this part because it was giving me a weird gap between certain images but that was because my stuff was linked wrong */
