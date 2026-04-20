@@ -2,11 +2,11 @@ const app = Vue.createApp({ // links to app in html, tells js what it controls
     mounted() { // when the "app" is "mounted", this happens (mount = page load)
         const carousel = document.querySelector('.carousel'); // document.querySelector selects element, this case carousel 
 
-        carousel.addEventListener('scroll', () => {
-            this.tiltImages(carousel);
+        carousel.addEventListener('scroll', () => { //event listener is like an interaction that happens like scroll or click
+            this.tiltImages(carousel); //when scrolls, do this
         });
 
-        this.tiltImages(carousel);
+        this.tiltImages(carousel); 
         
         document.querySelectorAll('.disc_pic').forEach(pic => {
             pic.addEventListener('mouseenter', () => {
@@ -21,11 +21,11 @@ const app = Vue.createApp({ // links to app in html, tells js what it controls
 
     methods: {
         tiltImages(carousel) {
-            const carouselCenter = carousel.getBoundingClientRect().left + carousel.clientWidth / 2;
-            document.querySelectorAll('.disc_pic').forEach(pic => {
-                const picCenter = pic.getBoundingClientRect().left + pic.offsetWidth / 2;
-                const tilt = (picCenter - carouselCenter) * 0.010;
-                pic.style.transform = `perspective(800px) rotateY(${-tilt}deg)`;
+            const carouselCenter = carousel.getBoundingClientRect().left + carousel.clientWidth / 2; //find center
+            document.querySelectorAll('.disc_pic').forEach(pic => { // choose pic
+                const picCenter = pic.getBoundingClientRect().left + pic.offsetWidth / 2; 
+                const tilt = (picCenter - carouselCenter) * 0.010; //to calculate tilt 
+                pic.style.transform = `perspective(800px) rotateY(${-tilt}deg)`; 
             });
         }
     }
