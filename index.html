@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmCentral</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rqw8wtp.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--for the three lines for menu-->
+</head>
+<body>
+    <div class="intro">
+        <div class="camera-wrapper">
+            <img src="./photos/camera drawing.svg" class="camera">
+            <div class="shutter"></div>
+        </div>
+    </div>
+
+    <!--
+     <div class="intro">  used ai to make a preliminary animation, i will be redoing this entire intro animation to make it exactly how i want it
+        <div class="camera">
+            <div class="shadow-box">rinifilm</div>
+            <div class="camera-top" ></div>
+            <div class="lens"></div>
+            <div class="shutter"></div>
+        </div>
+    </div>
+
+    NOTES-->
+
+    <header class="main-header">
+        <h1>FilmCentral</h1>
+    </header>
+
+    <div class="parallax p1"> <!-- yt video, creates a 3d like effect when scrolling so would be nice for the home page -->
+        <div class="pcontent1">
+        <p>Welcome to FilmCentral</p>
+        </div>
+    </div>
+    <div class="parallax p2">
+        <div class="pcontent2">
+        <p>A Public Domain of Film Photos</p>
+        </div>
+    </div>
+    <div class="parallax p3">
+        <div class="pcontent3">
+        <p>To Make Choosing <br>Your Next Roll</p> <!--<br> is line break, no closer needed-->
+        </div>
+    </div>
+    <div class="parallax p4">
+        <div class="pcontent4">
+        <p>Simpler.</p>
+        </div>
+    </div>
+
+
+    <div class="sidebar"> <!-- yt video, i got the typeface for the checkbox from there as well -->
+        <input type="checkbox" id="check">
+            <label for="check" class="menu_button">
+                <i class="fas fa-bars"></i>
+            </label>
+        <div class="sidebar_menu">
+            <div class="sidebar_title">
+                <a href="index.html">FilmCentral</a>
+            </div>
+            <div class="menu">
+                <ul>
+                     <li> <a href="kodak_gold/index.html"> Kodak Gold 200</a> </li>
+                     <li> <a href="kodak_ultramaxx/index.html"> Kodak Ultramax 400</a> </li>
+                     <li> <a href="kentmere_400/index.html"> Kentmere 400</a> </li>
+                     <li> <a href="fuji_dispo/index.html"> Fujifilm Disposable 400</a> </li>
+                     <li> <a href="fuji_400/index.html"> Fujfilm 400 </a> </li>
+                     <li> <a href="About/index.html"> About </a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--
+    <div id="app"> {{message}} </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: "Hello World!"
+            }
+        }
+    })
+    
+    app.mount('#app')
+    </script>
+-->
+</body>
+</html>

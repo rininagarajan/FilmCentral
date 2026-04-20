@@ -1,0 +1,346 @@
+body{
+    background-color: rgb(0, 0, 0);
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari */
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.main-header {
+    position: relative; /* can scroll from header, creates weird gap between header and p1 so i had to decrease the margin, making this fixed solves this issue but then the header stays at the bottom */ 
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: floralwhite ;
+    text-align: left;
+    transform: translateY(100%);
+    animation-name: slideUp;
+    animation-duration: 0.6s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-delay: 2.55s;
+    animation-iteration-count: 1;
+    transform: translateY(0);
+    margin-bottom: 0
+}
+
+h1 {
+    font-size: 600%;
+    max-width: 50%;
+    font-family: timeburner;
+    padding-left: 1%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.intro {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center top;
+    padding-top: 100px;
+    animation-delay: 4s;
+}
+
+.camera {
+    width: 200px;
+    height: 125px;
+    background: transparent;
+    /* filter: brightness(0) invert(1); originall was a black drawing on white paper, cant change color of this bc its technically an image so i put a inverse filter on it to make it white */
+    border-radius: 20px;
+    position: relative;
+    transform: scale(2.5);
+    padding-top: 40%;
+    display: block;
+}
+
+.camera-wrapper {
+    position: relative;
+    transform: scale(4);
+    animation: zoomOut 2s ease forwards;
+}
+
+.camera {
+    display: block;
+}
+
+/* .camera-top {
+    width: 60px;
+    height: 20px;
+    background: #3a3a3a;
+    border-radius: 6px;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+} */
+
+/* .lens{
+    width: 75px;
+    height: 75px;
+    background:#111;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.shutter {
+    position: absolute;
+    width: 40px;
+    height: 15px;
+    background: red;
+    top: 153px;
+    left: 160px;
+    border-radius: 6px;
+    transform-origin: bottom;
+    animation-name: shutterSnap;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 2.1s;
+    z-index: -1;
+}
+
+/* .shadow-box {
+    box-shadow: 5px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    padding: 5%;
+} */
+
+.parallax {
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    scroll-snap-align: start;
+    margin: 0;
+}
+
+.p1 {
+    background-image: url("../photos/lorenzo.1.jpg");
+    margin-top: -29%;
+}
+.p2 {
+    background-image: url("../photos/lorenzo.2.jpg");
+}
+.p3 {
+    background-image: url("../photos/lorenzo.3.jpg");
+}
+.p4 {
+    background-image: url("../photos/lorenzo.4.JPG");
+}
+.pcontent1 {
+    color: rgb(0, 0, 0);
+    text-align: left;
+    font-family: "inria-serif", sans-serif;
+    font-weight: 550;
+    font-style: normal;
+    font-size: 200%;
+    padding-left: 2%;
+}
+.pcontent2 {
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-family: "inria-serif, sans-serif";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 200%;
+    padding-left: 2%;;
+}
+.pcontent3 {
+    color: rgb(0, 0, 0);
+    text-align: left;
+    font-family: "inria-serif", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 200%;
+    padding-left: 2%;
+}
+.pcontent4 {
+    color: rgb(0, 0, 0);
+    text-align: left;
+    font-family: "inria-serif", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 200%;
+    padding-left: 2%;
+    padding-top: 10%;
+}
+
+
+/* {
+    outline: 1px solid red; 
+}*/
+
+
+.sidebar {
+    position: static;
+}
+
+#check {
+    display: none;
+}
+
+.menu_button {
+    position: fixed;
+    right: 1%;
+    top: 2%;
+    font-size: 200%;
+    cursor: pointer;
+    z-index: 10000;
+    color: beige;
+}
+
+.sidebar_menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 300px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.sidebar_title {
+    position: absolute;
+    margin: 20px;
+    top: 10%;
+    padding-left: 5%;
+}
+
+.sidebar_title a{
+    position: absolute;
+    font-size: 300%;
+    font-family: 'timeburner';
+    top: 30%;
+    text-decoration: none;
+    color: bisque;
+}
+
+#check:checked ~ .sidebar_menu {
+    right: 0;
+    opacity: 1;
+    right: 0;
+    pointer-events: auto;
+}
+
+.menu {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+}
+
+.menu li{
+    margin-top: 10%;
+    padding: 5%; /* mess around w this to maybe stop jiggling on list items, padding must be same here and in hover*/
+    width: 100%;
+    border-left: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+    position: relative; 
+    align-content: center;
+}
+
+.menu a{
+    color: bisque;
+    text-decoration: none;
+    font-family: 'timeburner';
+    font-size: 100%;
+}
+
+.menu li:hover {
+    border-left: solid 1px bisque;
+    border-bottom: solid 1px bisque;
+    box-shadow: 0 0 4% rgba(255, 255, 255, 0.5);
+    padding: 5%;
+    text-shadow: 0 0 1px bisque;
+}
+
+.sidebar_title a:hover {
+    text-shadow: 0 0 2px bisque;
+    text-decoration: 1px underline bisque;
+}
+
+
+/* #check:checked ~ .menu_button {
+    opacity: 0;
+}  
+    makes button dissapear when its open */
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(-100%);
+    }    
+}
+
+@keyframes zoomOut {
+    to {
+        transform: scale(1.5);
+    }
+}
+@keyframes shutterSnap{
+    0% { transform: scaleY(1); }
+    50% { transform: scaleY(0); }
+    100% { transform: scaleY(1); }
+}
+@keyframes flash {
+    0% { opacity: 0;}
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@font-face {
+    font-family: timeburner;
+    src: url(../fonts/TimeburnerBold-peGR.ttf);
+}
+
+@media (max-width: 768px) { /* this is for mobile, so if the screen is smaller than 768px, then do this, max-width is the screen size where the change happens */
+    h1 {
+        width: 60%;
+        font-size: 300%; /* probably want to shrink this too on mobile */
+    }
+    p {
+        width: 40%;
+        font-size: 100%; /* probably want to shrink this too on mobile */ 
+    }
+    .pcontent4 {
+        color: rgb(255, 255, 255);
+    }
+    .pcontent3 {
+        color: rgb(255, 255, 255);
+    }
+    .p1 {
+        margin-top: -60vh;
+    }
+    .pcontent1 {
+        padding-bottom: 60vh;
+    }
+    .parallax {
+        background-attachment: scroll;
+        background-size: cover;
+    }
+    .sidebar_menu {
+        width: 50%;
+    }
+    .sidebar_title {
+        top: 10%;
+        font-size: 75%;
+        padding-left: 2%;
+    }
+}
